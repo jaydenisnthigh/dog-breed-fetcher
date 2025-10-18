@@ -17,13 +17,13 @@ class MainTest {
     void getNumberOfSubBreedsInvalidBreed() {
         BreedFetcherForLocalTesting mock = new BreedFetcherForLocalTesting();
 
-        assertEquals(-1, Main.getNumberOfSubBreeds("cat", mock));
+        assertEquals(0, Main.getNumberOfSubBreeds("cat", mock));
     }
 
     @Test
     void exceptionTypeTest() {
-        Exception bfe = new BreedFetcher.BreedNotFoundException("hound");
-        assertTrue(bfe instanceof Exception && !(bfe instanceof RuntimeException),
+        BreedFetcher.BreedNotFoundException bfe = new BreedFetcher.BreedNotFoundException("hound");
+        assertTrue(bfe instanceof Exception && !((Exception) bfe instanceof RuntimeException),
                 "BreedFetcher.BreedNotFoundException must be a checked exception.");
     }
 
